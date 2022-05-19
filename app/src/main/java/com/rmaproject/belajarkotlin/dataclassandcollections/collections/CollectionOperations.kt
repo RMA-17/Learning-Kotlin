@@ -92,28 +92,4 @@ fun main() {
 
     val sortedListDescending = numberList.sortedDescending() // Ini akan mengurutkan secara DESC
 
-    //Sequences
-
-    /*
-    Tiga (3) jenis collection yang sudah kita pelajari sebelumnya merupakan jenis collection yang menjalankan eager evaluation.
-    Berbeda dengan itu, Sequence merupakan collection yang bisa dikategorikan ke dalam lazy evaluation.
-    Jika eager evaluation mengevaluasi seluruh item yang ada pada collection,
-    lazy evaluation hanya akan mengevaluasi  item jika benar-benar diperlukan.
-    */
-
-    val list = (1..1000000).toList()
-    list.filter { it % 5 == 0 }.map { it * 2 }.forEach { println(it) }
-
-    /*
-    Pada contoh kode di atas, kita memiliki data collection sejumlah 1 juta item,
-    kemudian masing-masing data akan disaring berdasarkan angka yang merupakan kelipatan 5 lalu dikalikan 2 dan akhirnya ditampilkan pada konsol.
-    Dengan eager evaluation atau dikenal dengan horizontal evaluation, list akan menyelesaikan proses filter terhadap 1 juta data
-    baru kemudian melakukan mapping data sampai akhirnya ditampilkan pada konsol.
-
-    Untuk menerapkan lazy  atau vertical evaluation maka kita perlu mengubah list menjadi Sequence.
-    Caranya sangat sederhana, yaitu dengan memanggil fungsi asSequence().
-    */
-
-    val sequence = list.asSequence()
-
 }
