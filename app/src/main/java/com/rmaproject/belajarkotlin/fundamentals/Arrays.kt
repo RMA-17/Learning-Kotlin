@@ -1,4 +1,4 @@
-package com.rmaproject.belajarkotlin
+package com.rmaproject.belajarkotlin.fundamentals
 
 fun main() {
     //Apa itu Indexing?
@@ -19,5 +19,12 @@ fun main() {
     for (i in namaGwejh) {
         println(i)
     }
+
+    val intArray = Array(13) { i -> i * 1 }
+    val arrayMutable = mutableListOf<Int>()
+    intArray.forEach {
+        arrayMutable.add(it)
+    }
+    print(arrayMutable)
 
 }

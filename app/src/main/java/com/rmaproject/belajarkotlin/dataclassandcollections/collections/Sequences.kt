@@ -49,7 +49,7 @@ fun main() {
         println("Generate Sequences: $it")
     }
 
-    //Intinya kalau mau filter list, pakai sequences aja biar cepat. Soalnya dia vertically filtered
+    //Intinya kalau mau filter list yang isinya banyak sampe , pakai sequences aja biar cepat. Soalnya dia vertically filtered
 
 
 }
