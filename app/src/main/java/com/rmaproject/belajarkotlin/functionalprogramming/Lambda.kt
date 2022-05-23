@@ -59,7 +59,7 @@ Perhatikan contoh kode di bawah ini.
 */
 
 //tanpa parameter:
-val message = { println("Hello From Lambda") }
+var message = { println("Hello From Lambda") }
 
 //dengan parameter:
 val messageWithParam = { message: String -> println(message) }
