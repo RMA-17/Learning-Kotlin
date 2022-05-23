@@ -58,12 +58,8 @@ fun main() {
     */
 
     println(::messageKotleen.name)
-    println(::message.get())
-    ::message.set {
-        "Kotleen Academy"
-    }
 
-    println(::message.get())
+    println(::messageKotleen.get())
 
     /*
     Ekspresi ::message akan dievaluasi ke dalam objek dengan KMutableProperty yang
