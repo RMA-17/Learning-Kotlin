@@ -1,0 +1,111 @@
+Concurrency adalah beberapa proses yang terjadi secara bersamaan dalam suatu sistem.
+Concurrency merupakan suatu fenomena alami yang umum terjadi. Seperti halnya di dunia nyata,
+banyak kegiatan yang dilakukan pada waktu yang bersamaan.
+
+Dengan demikian, ketika kita ingin mengembangkan sebuah sistem untuk membantu kegiatan nyata,
+tentunya kita harus peduli dengan yang namanya concurrency.
+
+Arus lalu lintas bisa menjadi ilustrasi yang tepat untuk menggambarkan proses concurrency.
+Lalu lintas paralel di jalan yang berbeda hanya akan menimbulkan interaksi
+dan potensi masalah yang kecil antar kendaraan.
+
+Berbeda dengan lalu lintas padat yang biasanya kita jumpai pada persimpangan.
+Pastinya interaksi dan potensi masalah antar kendaraan akan lebih besar dan
+membutuhkan koordinasi yang lebih. Begitu pula dalam sebuah sistem aplikasi.
+Proses paralel yang tidak saling berinteraksi hanya akan menyebabkan masalah concurrency yang sederhana.
+Berbeda dengan proses yang saling berinteraksi bahkan berbagi sumber daya.
+Masalahnya tentu lebih kompleks.
+
+Concurrency vs Parallelism
+
+Jika membahas concurrency, tentunya terkait dengan parallelism.
+Mungkin ada yang bingung mengenai perbedaan antara keduanya.
+Bagaimanapun, concurrency dan parallelism mempunyai arti yang mirip,
+yaitu 2 (dua) atau lebih proses yang berjalan pada satu waktu.
+Namun penting diketahui bahwa concurrency bukanlah parallelism.
+
+Baik concurrency maupun parallelism, biasanya melibatkan pembuatan thread-thread untuk menjalankan tugas.
+Thread-thread tersebut bisa dijalankan di satu atau lebih core. Lalu apakah perbedaan dari keduanya?
+
+Concurrency terjadi apabila terdapat 2 (dua) atau lebih proses yang tumpang tindih dalam satu waktu.
+Ini bisa terjadi jika ada 2 (dua) atau lebih thread yang sedang aktif.
+Dan jika thread tersebut dijalankan oleh komputer yang hanya memiliki 1 (satu) core,
+semua thread tidak akan dijalankan secara paralel.
+Concurrency memungkinkan sebuah komputer yang hanya memiliki 1 (satu) core tampak seakan
+mengerjakan banyak tugas sekaligus.
+Padahal sebenarnya tugas-tugas tersebut dilakukan secara bergantian.
+
+Sedangkan parallelism terjadi ketika 2 (dua) proses dijalankan pada titik waktu yang sama persis.
+Parallelism bisa dilakukan jika terdapat 2 (dua) atau lebih thread dan komputer
+juga memiliki 2 (dua) core atau lebih.
+Sehingga setiap core dapat menjalankan perintah dari masing-masing thread secara bersamaan.
+
+Artinya, parallelism dapat menimbulkan concurrency, tetapi concurrency bisa terjadi tanpa parallelism.
+
+Process, Thread, I/O-Bound
+
+Saat kita mulai menjalankan sebuah aplikasi, sebenarnya sistem operasi akan membuat sebuah proses,
+kemudian melampirkan sebuah thread padanya, dan setelah itu mulai menjalankan thread tersebut.
+Semua aktivitas tersebut akan bergantung pada perangkat yang digunakan,
+terutama perangkat perangkat input dan output (I/O).
+
+Process
+
+Sebuah proses (process) merupakan bagian dari aplikasi yang sedang dijalankan.
+Setiap kali aplikasi dijalankan, maka saat itu juga proses dijalankan.
+Tergantung pada sistem operasi yang digunakan,
+suatu proses dapat terdiri dari beberapa thread yang menjalankan instruksi secara bersamaan.
+
+Proses sering dianggap identik dengan program atau aplikasi.
+Namun, sebenarnya sebuah aplikasi adalah serangkaian proses yang saling bekerja sama.
+Untuk memfasilitasi komunikasi antar proses, sebagian besar sistem operasi mendukung
+sumber daya Inter Process Communication (IPC), seperti pipes dan soket.
+Biasanya sistem operasi modern sudah mendukung IPC.
+IPC digunakan tidak hanya untuk komunikasi antar proses pada sistem yang sama,
+melainkan juga untuk proses pada sistem yang berbeda.
+
+Kita pasti mengenal dengan sebuah konsep yang bernama multitasking atau melakukan
+banyak tugas secara bersamaan. Saat multitasking, sebenarnya sistem operasi hanya
+beralih di antara berbagai proses dengan sangat cepat untuk memberikan kesan bahwa
+proses ini sedang dijalankan secara bersamaan. Sebaliknya, multiprocessing adalah metode
+untuk menggunakan lebih dari satu CPU dalam menjalankan tugas.
+
+Dalam concurrency dan parallelism, multiprocessing mengacu pada pelaksanaan berbagai
+proses bersamaan dalam suatu sistem operasi, di mana setiap proses dieksekusi pada CPU terpisah.
+Oleh karena itu, multiprocessing merupakan tantangan tersendiri bagi developer dalam mengembangkan
+sebuah aplikasi.
+
+Thread
+
+Thread biasa dikenal dengan proses yang ringan.
+Membuat thread baru membutuhkan lebih sedikit sumber daya daripada membuat proses baru.
+Sebuah thread mencakup serangkaian instruksi untuk dijalankan oleh prosesor.
+Sehingga suatu proses akan memiliki setidaknya satu thread,
+yang dibuat untuk mengeksekusi fungsi utama dari sebuah aplikasi.
+Secara umum, thread tersebut disebut dengan main thread,
+dan life cycle dari sebuah proses akan terikat padanya.
+
+Lebih dari satu thread dapat diimplementasikan dalam proses yang sama,
+dan dapat dieksekusi secara bersamaan. Perbedaan utama antara proses dan thread adalah
+bahwa thread biasanya merupakan komponen dari suatu proses.
+Selain itu, thread biasanya memungkinkan untuk berbagi sumber daya seperti memori dan data.
+Dimana 2 (dua) hal tersebut jarang dilakukan oleh sebuah proses.
+
+Setiap thread dapat mengakses dan memodifikasi sumber daya yang terkandung dalam proses
+yang dilampirkan, tetapi juga memiliki penyimpanan lokal sendiri,
+yang biasa disebut dengan thread-local storage.
+
+Hanya satu dari instruksi dalam sebuah thread yang dapat dijalankan
+pada waktu tertentu. Jadi, jika sebuah thread terblokir, instruksi lain
+dalam thread yang sama tidak akan dijalankan sampai pemblokiran tersebut berakhir.
+Namun demikian, banyak thread dapat dibuat untuk proses yang sama,
+dan mereka dapat berkomunikasi satu sama lain.
+Jadi diharapkan aplikasi tidak akan pernah memblokir thread yang dapat mempengaruhi
+pengalaman pengguna secara negatif.
+
+Selain main thread, terdapat juga thread lain yang dikenal dengan UI thread.
+Thread ini berfungsi untuk memperbarui user interface (antarmuka) dan juga merespon
+aksi yang diberikan pada aplikasi. Jika thread ini diblokir, maka semua tugasnya akan
+terhalangi. Oleh karena itu, jangan sampai kita memblokir UI thread agar aplikasi tetap
+berjalan dengan semestinya.
+

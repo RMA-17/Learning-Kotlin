@@ -1,0 +1,7 @@
+Object-Oriented Programming
+
+    Pada sub-modul awal kita sudah mengetahui bahwa Kotlin memberi dukungan luas untuk mengembangkan
+program berorientasi objek. Sebabnya, OOP masih menjadi salah satu paradigma atau teknik pemrograma
+yang banyak digunakan dalam pengembangan aplikasi. Dengan paradigma OOP kita dapat mudah
+memvisualisasikan kode karena OOP sendiri mirip seperti skenario dalam kehidupan nyata.
+
