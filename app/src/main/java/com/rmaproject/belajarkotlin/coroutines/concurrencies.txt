@@ -109,3 +109,28 @@ aksi yang diberikan pada aplikasi. Jika thread ini diblokir, maka semua tugasnya
 terhalangi. Oleh karena itu, jangan sampai kita memblokir UI thread agar aplikasi tetap
 berjalan dengan semestinya.
 
+
+I/O-Bound
+
+Bottlenecks atau kemacetan adalah suatu hal yang penting untuk ditangani demi mengoptimalkan
+kinerja aplikasi. Bayangkan saja ketika Anda menggunakan sebuah aplikasi dan terjadi bottleneck
+di dalamnya, kesal sendiri kan? Perangkat input dan output biasanya sering mempengaruhi
+sebuah aplikasi mengalami bottlenecks.
+Sebagai contoh, memori yang terbatas, kecepatan prosesor, dsb.
+Lalu bagaimanakah cara untuk mengatasinya?
+
+I/O-bound merupakan sebuah algoritma yang bergantung pada perangkat input atau output.
+Waktu untuk mengeksekusi sebuah I/O-bound tergantung pada kecepatan perangkat yang digunakan.
+Sebagai contoh, suatu algoritma untuk membaca dan menulis sebuah dokumen.
+Ini adalah operasi I/O yang akan tergantung pada kecepatan di mana berkas tersebut dapat diakses.
+Berkas yang disimpan pada SSD akan lebih cepat diakses dibandingkan berkas yang disimpan pada HDD.
+
+Algoritma I/O-bound akan selalu menunggu sesuatu yang lain.
+Penantian terus-menerus ini memungkinkan perangkat yang hanya memiliki satu
+core untuk menggunakan prosesor demi tugas-tugas bermanfaat lainnya sambil menunggu.
+Jadi algoritma concurrent yang terikat dengan I/O akan melakukan hal yang sama,
+terlepas dari eksekusi yang terjadi -apakah paralel atau dalam satu core?
+
+Seperti yang telah disebutkan sebelumnya, sangat penting untuk tidak memblokir UI thread
+dalam sebuah aplikasi. Oleh karena itu, saran kami terapkanlah concurrency jika aplikasi yang
+Anda kembangkan punya ketergantungan dengan perangkat I/O.
