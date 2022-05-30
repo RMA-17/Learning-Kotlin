@@ -23,4 +23,5 @@ fun main() {
 
     //Raw string example
     val rawStringExample = """Ini adalah raw string example"""
+    val test = "mamang \t "
 }
